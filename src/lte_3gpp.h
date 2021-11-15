@@ -1,7 +1,7 @@
 /*
- * lte_tables_36211.cpp
+ * lte_3gpp.h
  *
- *  Tables defined in 3GPP TS 36.211
+ *  Static library implementation.
  *  Copyright (C) 2021 Manu T. Sreedharan
  *
  *  This program is free software: you can redistribute it and/or modify
@@ -20,4 +20,15 @@
  *  Created on: 15 Nov 2021
  */
 
+#ifndef _LTE_3GPP_H_
+#define _LTE_3GPP_H_
+
+
+#include "lte_consts.h"
+#include "lte_enums.h"
+
 #include "lte_tables_36211.h"
+#include "lte_tables_36213.h"
+
+
+#endif /* _LTE_3GPP_H_ */
