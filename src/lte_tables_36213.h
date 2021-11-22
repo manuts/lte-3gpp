@@ -49,7 +49,7 @@ inline const std::vector<std::vector<std::vector<uint8_t>>> downlinkAssociationS
 }};
 
 // [2] Table 7.3-Y: Uplink association index k' for TDD
-inline const std::array<std::array<uint8_t, lte::consts::numSubframesPerRadioFrame>, lte::consts::numTddUlDlConfigurations> uplinkAssociationIndex_T7P3_Y =
+inline constexpr std::array<std::array<uint8_t, lte::consts::numSubframesPerRadioFrame>, lte::consts::numTddUlDlConfigurations> uplinkAssociationIndex_T7P3_Y =
 {{
         // Note that table 7.3-Y does not have any entry for TDD UL/DL Configuration 0.
         // For TDD UL/DL Configuration 1-6, PUSCH in subframe n is allocated by UL-Grant in subframe n-k'.
@@ -65,7 +65,7 @@ inline const std::array<std::array<uint8_t, lte::consts::numSubframesPerRadioFra
 }};
 
 // [3] Table 8-2 k for TDD configurations 0-6
-inline const std::array<std::array<uint8_t, lte::consts::numSubframesPerRadioFrame>, lte::consts::numTddUlDlConfigurations> k_forTddConfigurations_T8_2 =
+inline constexpr std::array<std::array<uint8_t, lte::consts::numSubframesPerRadioFrame>, lte::consts::numTddUlDlConfigurations> k_forTddConfigurations_T8_2 =
 {{
         {4, 6, 0, 0, 0, 4, 6, 0, 0, 0},
         {0, 6, 0, 0, 4, 0, 6, 0, 0, 4},
