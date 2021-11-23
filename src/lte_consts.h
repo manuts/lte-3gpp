@@ -45,6 +45,12 @@ namespace lte {
         // Number of TDD Uplink-downlink configurations
         // See [1] Table 4.2-2.
         constexpr uint8_t numTddUlDlConfigurations = 7;
+
+        // number of rows in transport block size table
+        constexpr uint8_t numItbs = 44;
+
+        // maximum number of RBs per carrier = number of columns in transport size table.
+        constexpr uint16_t maxNumRBs = 110;
     }
 }
 

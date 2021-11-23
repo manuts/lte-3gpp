@@ -1,7 +1,7 @@
 /*
- * lte_3gpp.h
+ * lte_types.h
  *
- *  Static library implementation.
+ *  Types used in implementation of LTE specifications
  *  Copyright (C) 2021 Manu T. Sreedharan
  *
  *  This program is free software: you can redistribute it and/or modify
@@ -17,19 +17,23 @@
  *  You should have received a copy of the GNU General Public License
  *  along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- *  Created on: 15 Nov 2021
+ *  Created on: 23 Nov 2021
  */
 
-#ifndef _LTE_3GPP_H_
-#define _LTE_3GPP_H_
+#ifndef _LTE_TYPES_H_
+#define _LTE_TYPES_H_
 
-#include "lte_types.h"
-#include "lte_consts.h"
-#include "lte_enums.h"
+#include <stdint.h>
 
-#include "lte_tables_36211.h"
-#include "lte_tables_36213.h"
-#include "lte_tables_36213_TBSize.h"
+namespace lte {
+    namespace types {
+
+        typedef uint32_t tbSize_t;
+
+    }
+}
 
 
-#endif /* _LTE_3GPP_H_ */
+
+
+#endif /* _LTE_TYPES_H_ */
