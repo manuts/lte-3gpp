@@ -1,7 +1,7 @@
 /*
- * lte_types.h
+ * debug_utils.h
  *
- *  Types used in implementation of LTE specifications
+ *  Debug utilities.
  *  Copyright (C) 2021 Manu T. Sreedharan
  *
  *  This program is free software: you can redistribute it and/or modify
@@ -17,27 +17,15 @@
  *  You should have received a copy of the GNU General Public License
  *  along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- *  Created on: 23 Nov 2021
+ *  Created on: 2 Dec 2021
  */
 
-#ifndef _LTE_TYPES_H_
-#define _LTE_TYPES_H_
+#ifndef _DEBUG_UTILS_H_
+#define _DEBUG_UTILS_H_
 
-#include <stdint.h>
+#include <cassert>
 
-namespace lte {
-    namespace types {
-
-        typedef uint32_t tbSize_t;
-
-        typedef uint8_t iMcs_t;
-
-        typedef uint16_t nRb_t;
-
-    }
-}
+#define DBG_ASSERT(condition)   assert(condition);
 
 
-
-
-#endif /* _LTE_TYPES_H_ */
+#endif /* _DEBUG_UTILS_H_ */

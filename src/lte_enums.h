@@ -40,6 +40,10 @@ namespace lte
             ms10 = 10
         };
 
+        enum class cpType {
+            NORMAL = 0,
+            EXTENDED = 1
+        };
 
         enum class i_tbs {
             i0         ,
@@ -86,7 +90,15 @@ namespace lte
             i36        ,
             i37A       ,
             i37        ,
+            iRes  = 255
+        };
 
+        enum class modulationOrder {
+            Qm2 = 2,
+            Qm4 = 4,
+            Qm6 = 6,
+            Qm8 = 8,
+            Qm10 = 10
         };
     }
 }

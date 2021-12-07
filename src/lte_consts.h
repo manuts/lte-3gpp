@@ -49,8 +49,33 @@ namespace lte {
         // number of rows in transport block size table
         constexpr uint8_t numItbs = 44;
 
-        // maximum number of RBs per carrier = number of columns in transport size table.
-        constexpr uint16_t maxNumRBs = 110;
+        // Number of samples in a milli-second based on standard sampling rate of 30.72e6 samples per second.
+        constexpr uint32_t numSamplesInMs_default = 30720;
+
+        // maximum number of RBs per carrier.
+        constexpr uint16_t nRbMin = 6;
+
+        // maximum number of RBs per carrier.
+        constexpr uint16_t nRbMax = 110;
+
+        // Minimum number of RBs in UL
+        constexpr uint16_t nRbMinUl = 6;
+
+        // Maxinum number of RBs in UL
+        constexpr uint16_t nRbMaxUl = 110;
+
+        // Minimum number of RBs in DL
+        constexpr uint16_t nRbMinDl = 6;
+
+        // Maxinum number of RBs in DL
+        constexpr uint16_t nRbMaxDl = 110;
+
+        // Number of OFDM subcarriers per RB.
+        constexpr uint8_t nRbSc = 12;
+
+        // Number of OFDM symbols per slot
+        constexpr uint8_t nSymbUlNormalCp = 7;
+        constexpr uint8_t nSymbUlExtendedCp = 6;
     }
 }
 

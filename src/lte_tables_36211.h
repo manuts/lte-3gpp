@@ -33,6 +33,7 @@
 
 #include "lte_consts.h"
 #include "lte_enums.h"
+#include "debug_utils.h"
 
 // [1] Table 4.2-2: Uplink-downlink configurations
 inline constexpr std::array<std::pair<lte::enums::tddDlUlSwitchPeriodicity, std::array<lte::enums::tddSubframeType, lte::consts::numSubframesPerRadioFrame>>, lte::consts::numTddUlDlConfigurations> tddUlDlConfigurations_T4P2_2 =
@@ -46,6 +47,19 @@ inline constexpr std::array<std::pair<lte::enums::tddDlUlSwitchPeriodicity, std:
         {lte::enums::tddDlUlSwitchPeriodicity::ms05, {lte::enums::tddSubframeType::D, lte::enums::tddSubframeType::S, lte::enums::tddSubframeType::U, lte::enums::tddSubframeType::U, lte::enums::tddSubframeType::U, lte::enums::tddSubframeType::D, lte::enums::tddSubframeType::S, lte::enums::tddSubframeType::U, lte::enums::tddSubframeType::U, lte::enums::tddSubframeType::D}},
 }};
 
+const std::array<std::pair<lte::enums::tddDlUlSwitchPeriodicity, std::array<lte::enums::tddSubframeType, lte::consts::numSubframesPerRadioFrame>>, lte::consts::numTddUlDlConfigurations>& get_tddUlDlConfigurations_T4P2_2();
 
+typedef struct {
+    uint32_t len_DwPTS;
+    uint32_t len_UpPTS;
+    uint32_t len_GP;
+} specialSubframeBreakdown_t;
+
+constexpr uint8_t nGap2NA = 255;
+typedef struct {
+    // When nGap2 cannot be defined for the given system BW, then nGap2 is set to nGap2NA.
+    uint8_t nGap1;  // N_{gap,1} in [1] Table 6.2.3.2-1
+    uint8_t nGap2;  // N_{gap,2} in [1] Table 6.2.3.2-1
+} nGaps_t;
 
 #endif /* _LTE_TABLES_36211_H_ */
