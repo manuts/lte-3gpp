@@ -45,6 +45,52 @@ namespace lte
             EXTENDED = 1
         };
 
+        enum class prachPreambleFormat {
+            f0,
+            f1,
+            f2,
+            f3,
+            f4,
+            fNA = 255
+        };
+
+        enum class prachDensity {
+            d0P5,
+            d1,
+            d2,
+            d3,
+            d4,
+            d5,
+            d6,
+            dNA = 255
+        };
+
+        enum class prachVersion {
+            v0,
+            v1,
+            v2,
+            vNA = 255
+        };
+
+        enum class prachOccasionFrameRepititionMode {
+            Even,   // PRACH occasion can occur only in even system frame numbers.
+            Any,    // PRACH occasion can occur in all system frame numbers.
+            NA      // Configuration is not defined for the given prach configuration index
+        };
+
+        enum class prachOccasionTDDFrameRepMode {
+            // PRACH repetition mode for TDD
+            any,   //
+            even,  //
+            odd,   //
+        };
+
+        enum class prachOccasionTDDNhf {
+            // PRACH occasion in the first half or the second half
+            nHf0,   //
+            nHf1,   //
+        };
+
         enum class i_tbs {
             i0         ,
             i1         ,

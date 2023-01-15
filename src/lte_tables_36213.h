@@ -39,6 +39,18 @@
 #include "lte_consts.h"
 #include "lte_enums.h"
 
+// [1] Table  10.1.3A-1: Downlink association set K : {k0 , k1 , kM −1} for FDD-TDD and serving cell frame structure type 1
+inline const std::vector<std::vector<std::vector<uint8_t>>> downlinkAssociationSet_T10P1P3A_1 =
+{{
+        {{},{},{6,5},{5,4},{4,},{},{},{6,5},{5,4},{4,},},
+        {{},{},{7,6,},{6,5,4,},{},{},{},{7,6,},{6,5,4,},{},},
+        {{},{},{8,7,6,5,4},{},{},{},{},{8,7,6,5,4},{},{},},
+        {{},{},{11,10,9,8,7,6},{6,5,},{5,4,},{},{},{},{},{},},
+        {{},{},{12,11,10,9,8,7,},{7,6,5,4,},{},{},{},{},{},{},},
+        {{},{},{13,12,11,10,9,8,7,6,5,4,},{},{},{},{},{},{},{},},
+        {{},{},{8,7,},{7,6,},{6,5,},{},{},{7,},{7,6,5,},{},},
+}};
+
 // [1] Table 10.1.3.1-1: Downlink association set K : {k0 , k1 , k_{M−1}} for TDD
 inline const std::vector<std::vector<std::vector<uint8_t>>> downlinkAssociationSet_T10P1P3P1_1 =
 {{
@@ -77,6 +89,18 @@ inline constexpr std::array<std::array<uint8_t, lte::consts::numSubframesPerRadi
         {0, 0, 0, 0, 0, 0, 0, 0, 4, 4},
         {0, 0, 0, 0, 0, 0, 0, 0, 4, 0},
         {7, 7, 0, 0, 0, 7, 7, 0, 0, 5},
+}};
+
+// [3] Table 8.3-1 k for TDD configurations 0-6
+inline constexpr std::array<std::array<uint8_t, lte::consts::numSubframesPerRadioFrame>, lte::consts::numTddUlDlConfigurations> k_forTddConfigurations_T8P3_2 =
+{{
+        {7, 4, 0, 0, 0, 7, 4, 0, 0, 0},
+        {0, 4, 0, 0, 6, 0, 4, 0, 0, 6},
+        {0, 0, 0, 6, 0, 0, 0, 0, 6, 0},
+        {6, 0, 0, 0, 0, 0, 0, 0, 6, 6},
+        {0, 0, 0, 0, 0, 0, 0, 0, 6, 6},
+        {0, 0, 0, 0, 0, 0, 0, 0, 6, 0},
+        {6, 4, 0, 0, 0, 7, 4, 0, 0, 6},
 }};
 
 typedef struct {
@@ -277,5 +301,50 @@ inline const std::vector<mcs2tbsIndexTable_elem> mcs2tbsIndexTable4
     {lte::types::iMcs_t(62),    lte::enums::modulationOrder::Qm8,   lte::enums::modulationOrder::Qm8,   {lte::enums::i_tbs::iRes}                           },
     {lte::types::iMcs_t(63),    lte::enums::modulationOrder::Qm10,  lte::enums::modulationOrder::Qm10,  {lte::enums::i_tbs::iRes}                           },
 }};
+
+// [4] Table 10.2-1: DL-reference UL/DL configuration for serving cell based on pair formed by (primary cell UL/DL configuration, secondary cell UL/DL configuration)
+inline const std::vector<std::vector<std::pair<std::vector<std::pair<uint8_t, uint8_t>>, uint8_t>>> dlReferenceUlDlConfig =
+{
+    {
+        // set 1
+        {{{0,0}}, 0},
+        {{{1,0},{1,1},{1,6}}, 1},
+        {{{2,0},{2,2},{2,1},{2,6}}, 2},
+        {{{3,0},{3,3},{3,6}}, 3},
+        {{{4,0},{4,1},{4,3},{4,4},{4,6}}, 4},
+        {{{5,0},{5,1},{5,2},{5,3},{5,4},{5,5},{5,6}}, 5},
+        {{{6,0},{6,6}}, 6}
+    },
+    {
+        // set 2
+        {{{0,1},{6,1}}, 1},
+        {{{0,2},{1,2},{6,2}}, 2},
+        {{{0,3},{6,3}}, 3},
+        {{{0,4},{1,4},{3,4},{6,4}}, 4},
+        {{{0,5},{1,5},{2,5},{3,5},{4,5},{6,5}}, 5},
+        {{{0,6}}, 6}
+    },
+    {
+        // set 3
+        {{{3,1},{1,3}}, 4},
+        {{{3,2},{4,2},{2,3},{2,4}}, 5}
+    },
+    {
+        // set 4
+        {{{0,1},{0,2},{0,3},{0,4},{0,5},{0,6}}, 0},
+        {{{1,2},{1,4},{1,5}}, 1},
+        {{{2,5}}, 2},
+        {{{3,4},{3,5}}, 3},
+        {{{4,5}}, 4},
+        {{{6,1},{6,2},{6,3},{6,4},{6,5}}, 6}
+    },
+    {
+        // set 5
+        {{{1,3}}, 1},
+        {{{2,3},{2,4}}, 2},
+        {{{3,1},{3,2}}, 3},
+        {{{4,2}}, 4}
+    }
+};
 
 #endif /* _LTE_TABLES_36213_H_ */
