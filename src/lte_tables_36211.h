@@ -215,30 +215,18 @@ inline const std::vector<std::pair<uint8_t, randomAccessConfigurationElementFSTy
         {63  , {lte::enums::prachPreambleFormat::fNA , lte::enums::prachDensity::dNA   , lte::enums::prachVersion::vNA     }},
 }};
 
-typedef struct randomAccessPremableMappingFSType2Elem {
+typedef struct {
     // frequency resource index within the considered time instance
     uint8_t freqResIdx;
-    uint8_t tRA0; // lte::enums::prachOccasionTDDFrameRepMode tRA0;
-    uint8_t tRA1; // lte::enums::prachOccasionTDDNhf tRA1;
+    lte::enums::prachOccasionTDDFrameRepMode tRA0;
+    lte::enums::prachOccasionTDDNhf tRA1;
     // startSubframe: the uplink subframe number where the preamble starts,
     // counting from 0 at the first uplink subframe between 2 consecutive
     // downlink-to-uplink switch points.
     uint8_t startSubframe;
-};
+} randomAccessPremableMappingFSType2Elem;
 
-// using std::array<std::vector<randomAccessPremableMappingFSType2Elem>, lte::consts::numTddUlDlConfigurations> = randomAccessPremableMappingFSType2Elems;
-
-inline const std::vector<std::pair<uint8_t, std::array<std::vector<randomAccessPremableMappingFSType2Elem>, lte::consts::numTddUlDlConfigurations>>> randomAccessPreambleMappingFSType2_T5P7P1_4
-{{
-    {0, {{{0,1,0,2}},{{0,1,0,1}},{{0,1,0,0}},{{0,1,0,2}},{{0,1,0,1}},{{0,1,0,0}},{{0,1,0,2}}}},
-    {1, {{{0,2,0,2}},{{0,2,0,1}},{{0,2,0,0}},{{0,2,0,2}},{{0,2,0,1}},{{0,2,0,0}},{{0,2,0,2}}}},
-    {2, {{{0,1,1,2}},{{0,1,1,1}},{{0,1,1,0}},{{0,1,0,1}},{{0,1,0,0}},{},{{0,1,1,1}}}},
-    {3, {{{0,0,0,2}},{{0,0,0,1}},{{0,0,0,0}},{{0,0,0,2}},{{0,0,0,1}},{{0,0,0,0}},{{0,0,0,2}}}},
-    {4, {{{0,0,1,2}},{{0,0,1,1}},{{0,0,1,0}},{{0,0,0,1}},{{0,0,0,0}},{},{{0,0,1,1}}}},
-    {5, {{{0,0,0,1}},{{0,0,0,0}},{},{{0,0,0,0}},{},{},{{0,0,0,1}}}},
-    {6, {{{0,0,0,2},{0,0,1,2}},{{0,0,0,1},{0,0,1,1}},{{0,0,0,0},{0,0,1,0}},{{0,0,0,1},{0,0,0,2}},{{0,0,0,0},{0,0,0,1}},{{0,0,0,0},{1,0,0,0}},{{0,0,0,2},{0,0,1,1}}}},
-    {7, {{{0,0,0,1},{0,0,1,1}},{{0,0,0,0},{0,0,1,0}},{},{{0,0,0,0},{0,0,0,2}},{},{},{{0,0,0,1},{0,0,1,0}}}},
-}};
+const std::vector<std::pair<uint8_t, std::array<std::vector<randomAccessPremableMappingFSType2Elem>, lte::consts::numTddUlDlConfigurations>>>& randomAccessPreambleMappingFSType2_T5P7P1_4();
 
 // [1] Table 5.7.2-4: Root Zadoff-Chu sequence order for preamble formats 0 – 3
 inline const std::vector<std::pair<std::pair<uint16_t, uint16_t>, std::vector<uint16_t>>> rootZCSequenceOrder_formats0_3 =

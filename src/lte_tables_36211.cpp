@@ -132,3 +132,80 @@ inline const nGaps_t rbGapValues_T6P2P3P2_1(lte::types::nRb_t nRbDl)
 
     return nGaps;
 }
+
+const std::vector<std::pair<uint8_t, std::array<std::vector<randomAccessPremableMappingFSType2Elem>, lte::consts::numTddUlDlConfigurations>>>& randomAccessPreambleMappingFSType2_T5P7P1_4()
+{
+    using enum lte::enums::prachOccasionTDDFrameRepMode;
+    using enum lte::enums::prachOccasionTDDNhf;
+    constexpr uint8_t sfDontCare = UINT8_MAX;
+
+    static const std::vector<std::pair<uint8_t, std::array<std::vector<randomAccessPremableMappingFSType2Elem>, lte::consts::numTddUlDlConfigurations>>> preambleMappings =
+    {{
+        {0, {{{{0,even,nHf0,2}},{{0,even,nHf0,1}},{{0,even,nHf0,0}},{{0,even,nHf0,2}},{{0,even,nHf0,1}},{{0,even,nHf0,0}},{{0,even,nHf0,2}}}}},
+        {1, {{{{0,odd,nHf0,2}},{{0,odd,nHf0,1}},{{0,odd,nHf0,0}},{{0,odd,nHf0,2}},{{0,odd,nHf0,1}},{{0,odd,nHf0,0}},{{0,odd,nHf0,2}}}}},
+        {2, {{{{0,even,nHf1,2}},{{0,even,nHf1,1}},{{0,even,nHf1,0}},{{0,even,nHf0,1}},{{0,even,nHf0,0}},{},{{0,even,nHf1,1}}}}},
+        {3, {{{{0,any,nHf0,2}},{{0,any,nHf0,1}},{{0,any,nHf0,0}},{{0,any,nHf0,2}},{{0,any,nHf0,1}},{{0,any,nHf0,0}},{{0,any,nHf0,2}}}}},
+        {4, {{{{0,any,nHf1,2}},{{0,any,nHf1,1}},{{0,any,nHf1,0}},{{0,any,nHf0,1}},{{0,any,nHf0,0}},{},{{0,any,nHf1,1}}}}},
+        {5, {{{{0,any,nHf0,1}},{{0,any,nHf0,0}},{},{{0,any,nHf0,0}},{},{},{{0,any,nHf0,1}}}}},
+        {6, {{{{0,any,nHf0,2},{0,any,nHf1,2}},{{0,any,nHf0,1},{0,any,nHf1,1}},{{0,any,nHf0,0},{0,any,nHf1,0}},{{0,any,nHf0,1},{0,any,nHf0,2}},{{0,any,nHf0,0},{0,any,nHf0,1}},{{0,any,nHf0,0},{1,any,nHf0,0}},{{0,any,nHf0,2},{0,any,nHf1,1}}}}},
+        {7, {{{{0,any,nHf0,1},{0,any,nHf1,1}},{{0,any,nHf0,0},{0,any,nHf1,0}},{},{{0,any,nHf0,0},{0,any,nHf0,2}},{},{},{{0,any,nHf0,1},{0,any,nHf1,0}}}}},
+        {8, {{{{0,any,nHf0,0},{0,any,nHf1,0}},{},{},{{0,any,nHf0,0},{0,any,nHf0,1}},{},{},{{0,any,nHf0,0},{0,any,nHf1,1}}}}},
+        {9, {{{{0,any,nHf0,1},{0,any,nHf0,2},{0,any,nHf1,2}},{{0,any,nHf0,0},{0,any,nHf0,1},{0,any,nHf1,1}},{{0,any,nHf0,0},{0,any,nHf1,0},{1,any,nHf0,0}},{{0,any,nHf0,0},{0,any,nHf0,1},{0,any,nHf0,2}},{{0,any,nHf0,0},{0,any,nHf0,1},{1,any,nHf0,1}},{{0,any,nHf0,0},{1,any,nHf0,0},{2,any,nHf0,0}},{{0,any,nHf0,1},{0,any,nHf0,2},{0,any,nHf1,1}}}}},
+        {10, {{{{0,any,nHf0,0},{0,any,nHf1,0},{0,any,nHf1,1}},{{0,any,nHf0,1},{0,any,nHf1,0},{0,any,nHf1,1}},{{0,any,nHf0,0},{0,any,nHf1,0},{1,any,nHf1,0}},{},{{0,any,nHf0,0},{0,any,nHf0,1},{1,any,nHf0,0}},{},{{0,any,nHf0,0},{0,any,nHf0,2},{0,any,nHf1,0}}}}},
+        {11, {{{},{{0,any,nHf0,0},{0,any,nHf0,1},{0,any,nHf1,0}},{},{},{},{},{{0,any,nHf0,1},{0,any,nHf1,0},{0,any,nHf1,1}}}}},
+        {12, {{{{0,any,nHf0,1},{0,any,nHf0,2},{0,any,nHf1,1},{0,any,nHf1,2}},{{0,any,nHf0,0},{0,any,nHf0,1},{0,any,nHf1,0},{0,any,nHf1,1}},{{0,any,nHf0,0},{0,any,nHf1,0},{1,any,nHf0,0},{1,any,nHf1,0}},{{0,any,nHf0,0},{0,any,nHf0,1},{0,any,nHf0,2},{1,any,nHf0,2}},{{0,any,nHf0,0},{0,any,nHf0,1},{1,any,nHf0,0},{1,any,nHf0,1}},{{0,any,nHf0,0},{1,any,nHf0,0},{2,any,nHf0,0},{3,any,nHf0,0}},{{0,any,nHf0,1},{0,any,nHf0,2},{0,any,nHf1,0},{0,any,nHf1,1}}}}},
+        {13, {{{{0,any,nHf0,0},{0,any,nHf0,2},{0,any,nHf1,0},{0,any,nHf1,2}},{},{},{{0,any,nHf0,0},{0,any,nHf0,1},{0,any,nHf0,2},{1,any,nHf0,1}},{},{},{{0,any,nHf0,0},{0,any,nHf0,1},{0,any,nHf0,2},{0,any,nHf1,1}}}}},
+        {14, {{{{0,any,nHf0,0},{0,any,nHf0,1},{0,any,nHf1,0},{0,any,nHf1,1}},{},{},{{0,any,nHf0,0},{0,any,nHf0,1},{0,any,nHf0,2},{1,any,nHf0,0}},{},{},{{0,any,nHf0,0},{0,any,nHf0,2},{0,any,nHf1,0},{0,any,nHf1,1}}}}},
+        {15, {{{{0,any,nHf0,0},{0,any,nHf0,1},{0,any,nHf0,2},{0,any,nHf1,1},{0,any,nHf1,2}},{{0,any,nHf0,0},{0,any,nHf0,1},{0,any,nHf1,0},{0,any,nHf1,1},{1,any,nHf0,1}},{{0,any,nHf0,0},{0,any,nHf1,0},{1,any,nHf0,0},{1,any,nHf1,0},{2,any,nHf0,0}},{{0,any,nHf0,0},{0,any,nHf0,1},{0,any,nHf0,2},{1,any,nHf0,1},{1,any,nHf0,2}},{{0,any,nHf0,0},{0,any,nHf0,1},{1,any,nHf0,0},{1,any,nHf0,1},{2,any,nHf0,1}},{{0,any,nHf0,0},{1,any,nHf0,0},{2,any,nHf0,0},{3,any,nHf0,0},{4,any,nHf0,0}},{{0,any,nHf0,0},{0,any,nHf0,1},{0,any,nHf0,2},{0,any,nHf1,0},{0,any,nHf1,1}}}}},
+        {16, {{{{0,any,nHf0,1},{0,any,nHf0,2},{0,any,nHf1,0},{0,any,nHf1,1},{0,any,nHf1,2}},{{0,any,nHf0,0},{0,any,nHf0,1},{0,any,nHf1,0},{0,any,nHf1,1},{1,any,nHf1,1}},{{0,any,nHf0,0},{0,any,nHf1,0},{1,any,nHf0,0},{1,any,nHf1,0},{2,any,nHf1,0}},{{0,any,nHf0,0},{0,any,nHf0,1},{0,any,nHf0,2},{1,any,nHf0,0},{1,any,nHf0,2}},{{0,any,nHf0,0},{0,any,nHf0,1},{1,any,nHf0,0},{1,any,nHf0,1},{2,any,nHf0,0}},{},{}}}},
+        {17, {{{{0,any,nHf0,0},{0,any,nHf0,1},{0,any,nHf0,2},{0,any,nHf1,0},{0,any,nHf1,2}},{{0,any,nHf0,0},{0,any,nHf0,1},{0,any,nHf1,0},{0,any,nHf1,1},{1,any,nHf0,0}},{},{{0,any,nHf0,0},{0,any,nHf0,1},{0,any,nHf0,2},{1,any,nHf0,0},{1,any,nHf0,1}},{},{},{}}}},
+        {18, {{{{0,any,nHf0,0},{0,any,nHf0,1},{0,any,nHf0,2},{0,any,nHf1,0},{0,any,nHf1,1},{0,any,nHf1,2}},{{0,any,nHf0,0},{0,any,nHf0,1},{0,any,nHf1,0},{0,any,nHf1,1},{1,any,nHf0,1},{1,any,nHf1,1}},{{0,any,nHf0,0},{0,any,nHf1,0},{1,any,nHf0,0},{1,any,nHf1,0},{2,any,nHf0,0},{2,any,nHf1,0}},{{0,any,nHf0,0},{0,any,nHf0,1},{0,any,nHf0,2},{1,any,nHf0,0},{1,any,nHf0,1},{1,any,nHf0,2}},{{0,any,nHf0,0},{0,any,nHf0,1},{1,any,nHf0,0},{1,any,nHf0,1},{2,any,nHf0,0},{2,any,nHf0,1}},{{0,any,nHf0,0},{1,any,nHf0,0},{2,any,nHf0,0},{3,any,nHf0,0},{4,any,nHf0,0},{5,any,nHf0,0}},{{0,any,nHf0,0},{0,any,nHf0,1},{0,any,nHf0,2},{0,any,nHf1,0},{0,any,nHf1,1},{1,any,nHf0,2}}}}},
+        {19, {{{},{{0,any,nHf0,0},{0,any,nHf0,1},{0,any,nHf1,0},{0,any,nHf1,1},{1,any,nHf0,0},{1,any,nHf1,0}},{},{},{},{},{{0,any,nHf0,0},{0,any,nHf0,1},{0,any,nHf0,2},{0,any,nHf1,0},{0,any,nHf1,1},{1,any,nHf1,1}}}}},
+        {20, {{{{0,even,nHf0,1}},{{0,even,nHf0,0}},{},{{0,even,nHf0,1}},{{0,even,nHf0,0}},{},{{0,even,nHf0,1}}}}},
+        {21, {{{{0,odd,nHf0,1}},{{0,odd,nHf0,0}},{},{{0,odd,nHf0,1}},{{0,odd,nHf0,0}},{},{{0,odd,nHf0,1}}}}},
+        {22, {{{{0,even,nHf1,1}},{{0,even,nHf1,0}},{},{},{},{},{{0,even,nHf1,0}}}}},
+        {23, {{{{0,any,nHf0,1}},{{0,any,nHf0,0}},{},{{0,any,nHf0,1}},{{0,any,nHf0,0}},{},{{0,any,nHf0,1}}}}},
+        {24, {{{{0,any,nHf1,1}},{{0,any,nHf1,0}},{},{},{},{},{{0,any,nHf1,0}}}}},
+        {25, {{{{0,any,nHf0,1},{0,any,nHf1,1}},{{0,any,nHf0,0},{0,any,nHf1,0}},{},{{0,any,nHf0,1},{1,any,nHf0,1}},{{0,any,nHf0,0},{1,any,nHf0,0}},{},{{0,any,nHf0,1},{0,any,nHf1,0}}}}},
+        {26, {{{{0,any,nHf0,1},{0,any,nHf1,1},{1,any,nHf0,1}},{{0,any,nHf0,0},{0,any,nHf1,0},{1,any,nHf0,0}},{},{{0,any,nHf0,1},{1,any,nHf0,1},{2,any,nHf0,1}},{{0,any,nHf0,0},{1,any,nHf0,0},{2,any,nHf0,0}},{},{{0,any,nHf0,1},{0,any,nHf1,0},{1,any,nHf0,1}}}}},
+        {27, {{{{0,any,nHf0,1},{0,any,nHf1,1},{1,any,nHf0,1},{1,any,nHf1,1}},{{0,any,nHf0,0},{0,any,nHf1,0},{1,any,nHf0,0},{1,any,nHf1,0}},{},{{0,any,nHf0,1},{1,any,nHf0,1},{2,any,nHf0,1},{3,any,nHf0,1}},{{0,any,nHf0,0},{1,any,nHf0,0},{2,any,nHf0,0},{3,any,nHf0,0}},{},{{0,any,nHf0,1},{0,any,nHf1,0},{1,any,nHf0,1},{1,any,nHf1,0}}}}},
+        {28, {{{{0,any,nHf0,1},{0,any,nHf1,1},{1,any,nHf0,1},{1,any,nHf1,1},{2,any,nHf0,1}},{{0,any,nHf0,0},{0,any,nHf1,0},{1,any,nHf0,0},{1,any,nHf1,0},{2,any,nHf0,0}},{},{{0,any,nHf0,1},{1,any,nHf0,1},{2,any,nHf0,1},{3,any,nHf0,1},{4,any,nHf0,1}},{{0,any,nHf0,0},{1,any,nHf0,0},{2,any,nHf0,0},{3,any,nHf0,0},{4,any,nHf0,0}},{},{{0,any,nHf0,1},{0,any,nHf1,0},{1,any,nHf0,1},{1,any,nHf1,0},{2,any,nHf0,1}}}}},
+        {29, {{{{0,any,nHf0,1},{0,any,nHf1,1},{1,any,nHf0,1},{1,any,nHf1,1},{2,any,nHf0,1},{2,any,nHf1,1}},{{0,any,nHf0,0},{0,any,nHf1,0},{1,any,nHf0,0},{1,any,nHf1,0},{2,any,nHf0,0},{2,any,nHf1,0}},{},{{0,any,nHf0,1},{1,any,nHf0,1},{2,any,nHf0,1},{3,any,nHf0,1},{4,any,nHf0,1},{5,any,nHf0,1}},{{0,any,nHf0,0},{1,any,nHf0,0},{2,any,nHf0,0},{3,any,nHf0,0},{4,any,nHf0,0},{5,any,nHf0,0}},{},{{0,any,nHf0,1},{0,any,nHf1,0},{1,any,nHf0,1},{1,any,nHf1,0},{2,any,nHf0,1},{2,any,nHf1,0}}}}},
+        {30, {{{{0,even,nHf0,1}},{{0,even,nHf0,0}},{},{{0,even,nHf0,1}},{{0,even,nHf0,0}},{},{{0,even,nHf0,1}}}}},
+        {31, {{{{0,odd,nHf0,1}},{{0,odd,nHf0,0}},{},{{0,odd,nHf0,1}},{{0,odd,nHf0,0}},{},{{0,odd,nHf0,1}}}}},
+        {32, {{{{0,even,nHf1,1}},{{0,even,nHf1,0}},{},{},{},{},{{0,even,nHf1,0}}}}},
+        {33, {{{{0,any,nHf0,1}},{{0,any,nHf0,0}},{},{{0,any,nHf0,1}},{{0,any,nHf0,0}},{},{{0,any,nHf0,1}}}}},
+        {34, {{{{0,any,nHf1,1}},{{0,any,nHf1,0}},{},{},{},{},{{0,any,nHf1,0}}}}},
+        {35, {{{{0,any,nHf0,1},{0,any,nHf1,1}},{{0,any,nHf0,0},{0,any,nHf1,0}},{},{{0,any,nHf0,1},{1,any,nHf0,1}},{{0,any,nHf0,0},{1,any,nHf0,0}},{},{{0,any,nHf0,1},{0,any,nHf1,0}}}}},
+        {36, {{{{0,any,nHf0,1},{0,any,nHf1,1},{1,any,nHf0,1}},{{0,any,nHf0,0},{0,any,nHf1,0},{1,any,nHf0,0}},{},{{0,any,nHf0,1},{1,any,nHf0,1},{2,any,nHf0,1}},{{0,any,nHf0,0},{1,any,nHf0,0},{2,any,nHf0,0}},{},{{0,any,nHf0,1},{0,any,nHf1,0},{1,any,nHf0,1}}}}},
+        {37, {{{{0,any,nHf0,1},{0,any,nHf1,1},{1,any,nHf0,1},{1,any,nHf1,1}},{{0,any,nHf0,0},{0,any,nHf1,0},{1,any,nHf0,0},{1,any,nHf1,0}},{},{{0,any,nHf0,1},{1,any,nHf0,1},{2,any,nHf0,1},{3,any,nHf0,1}},{{0,any,nHf0,0},{1,any,nHf0,0},{2,any,nHf0,0},{3,any,nHf0,0}},{},{{0,any,nHf0,1},{0,any,nHf1,0},{1,any,nHf0,1},{1,any,nHf1,0}}}}},
+        {38, {{{{0,any,nHf0,1},{0,any,nHf1,1},{1,any,nHf0,1},{1,any,nHf1,1},{2,any,nHf0,1}},{{0,any,nHf0,0},{0,any,nHf1,0},{1,any,nHf0,0},{1,any,nHf1,0},{2,any,nHf0,0}},{},{{0,any,nHf0,1},{1,any,nHf0,1},{2,any,nHf0,1},{3,any,nHf0,1},{4,any,nHf0,1}},{{0,any,nHf0,0},{1,any,nHf0,0},{2,any,nHf0,0},{3,any,nHf0,0},{4,any,nHf0,0}},{},{{0,any,nHf0,1},{0,any,nHf1,0},{1,any,nHf0,1},{1,any,nHf1,0},{2,any,nHf0,1}}}}},
+        {39, {{{{0,any,nHf0,1},{0,any,nHf1,1},{1,any,nHf0,1},{1,any,nHf1,1},{2,any,nHf0,1},{2,any,nHf1,1}},{{0,any,nHf0,0},{0,any,nHf1,0},{1,any,nHf0,0},{1,any,nHf1,0},{2,any,nHf0,0},{2,any,nHf1,0}},{},{{0,any,nHf0,1},{1,any,nHf0,1},{2,any,nHf0,1},{3,any,nHf0,1},{4,any,nHf0,1},{5,any,nHf0,1}},{{0,any,nHf0,0},{1,any,nHf0,0},{2,any,nHf0,0},{3,any,nHf0,0},{4,any,nHf0,0},{5,any,nHf0,0}},{},{{0,any,nHf0,1},{0,any,nHf1,0},{1,any,nHf0,1},{1,any,nHf1,0},{2,any,nHf0,1},{2,any,nHf1,0}}}}},
+        {40, {{{{0,even,nHf0,0}},{},{},{{0,even,nHf0,0}},{},{},{{0,even,nHf0,0}}}}},
+        {41, {{{{0,odd,nHf0,0}},{},{},{{0,odd,nHf0,0}},{},{},{{0,odd,nHf0,0}}}}},
+        {42, {{{{0,even,nHf1,0}},{},{},{},{},{},{}}}},
+        {43, {{{{0,any,nHf0,0}},{},{},{{0,any,nHf0,0}},{},{},{{0,any,nHf0,0}}}}},
+        {44, {{{{0,any,nHf1,0}},{},{},{},{},{},{}}}},
+        {45, {{{{0,any,nHf0,0},{0,any,nHf1,0}},{},{},{{0,any,nHf0,0},{1,any,nHf0,0}},{},{},{{0,any,nHf0,0},{1,any,nHf0,0}}}}},
+        {46, {{{{0,any,nHf0,0},{0,any,nHf1,0},{1,any,nHf0,0}},{},{},{{0,any,nHf0,0},{1,any,nHf0,0},{2,any,nHf0,0}},{},{},{{0,any,nHf0,0},{1,any,nHf0,0},{2,any,nHf0,0}}}}},
+        {47, {{{{0,any,nHf0,0},{0,any,nHf1,0},{1,any,nHf0,0},{1,any,nHf1,0}},{},{},{{0,any,nHf0,0},{1,any,nHf0,0},{2,any,nHf0,0},{3,any,nHf0,0}},{},{},{{0,any,nHf0,0},{1,any,nHf0,0},{2,any,nHf0,0},{3,any,nHf0,0}}}}},
+        {48, {{{{0,even,nHf0,sfDontCare}},{{0,even,nHf0,sfDontCare}},{{0,even,nHf0,sfDontCare}},{{0,even,nHf0,sfDontCare}},{{0,even,nHf0,sfDontCare}},{{0,even,nHf0,sfDontCare}},{{0,even,nHf0,sfDontCare}}}}},
+        {49, {{{{0,odd,nHf0,sfDontCare}},{{0,odd,nHf0,sfDontCare}},{{0,odd,nHf0,sfDontCare}},{{0,odd,nHf0,sfDontCare}},{{0,odd,nHf0,sfDontCare}},{{0,odd,nHf0,sfDontCare}},{{0,odd,nHf0,sfDontCare}}}}},
+        {50, {{{{0,even,nHf1,sfDontCare}},{{0,even,nHf1,sfDontCare}},{{0,even,nHf1,sfDontCare}},{},{},{},{{0,even,nHf1,sfDontCare}}}}},
+        {51, {{{{0,any,nHf0,sfDontCare}},{{0,any,nHf0,sfDontCare}},{{0,any,nHf0,sfDontCare}},{{0,any,nHf0,sfDontCare}},{{0,any,nHf0,sfDontCare}},{{0,any,nHf0,sfDontCare}},{{0,any,nHf0,sfDontCare}}}}},
+        {52, {{{{0,any,nHf1,sfDontCare}},{{0,any,nHf1,sfDontCare}},{{0,any,nHf1,sfDontCare}},{},{},{},{{0,any,nHf1,sfDontCare}}}}},
+        {53, {{{{0,any,nHf0,sfDontCare},{0,any,nHf1,sfDontCare}},{{0,any,nHf0,sfDontCare},{0,any,nHf1,sfDontCare}},{{0,any,nHf0,sfDontCare},{0,any,nHf1,sfDontCare}},{{0,any,nHf0,sfDontCare},{1,any,nHf0,sfDontCare}},{{0,any,nHf0,sfDontCare},{1,any,nHf0,sfDontCare}},{{0,any,nHf0,sfDontCare},{1,any,nHf0,sfDontCare}},{{0,any,nHf0,sfDontCare},{0,any,nHf1,sfDontCare}}}}},
+        {54, {{{{0,any,nHf0,sfDontCare},{0,any,nHf1,sfDontCare},{1,any,nHf0,sfDontCare}},{{0,any,nHf0,sfDontCare},{0,any,nHf1,sfDontCare},{1,any,nHf0,sfDontCare}},{{0,any,nHf0,sfDontCare},{0,any,nHf1,sfDontCare},{1,any,nHf0,sfDontCare}},{{0,any,nHf0,sfDontCare},{1,any,nHf0,sfDontCare},{2,any,nHf0,sfDontCare}},{{0,any,nHf0,sfDontCare},{1,any,nHf0,sfDontCare},{2,any,nHf0,sfDontCare}},{{0,any,nHf0,sfDontCare},{1,any,nHf0,sfDontCare},{2,any,nHf0,sfDontCare}},{{0,any,nHf0,sfDontCare},{0,any,nHf1,sfDontCare},{1,any,nHf0,sfDontCare}}}}},
+        {55, {{{{0,any,nHf0,sfDontCare},{0,any,nHf1,sfDontCare},{1,any,nHf0,sfDontCare},{1,any,nHf1,sfDontCare}},{{0,any,nHf0,sfDontCare},{0,any,nHf1,sfDontCare},{1,any,nHf0,sfDontCare},{1,any,nHf1,sfDontCare}},{{0,any,nHf0,sfDontCare},{0,any,nHf1,sfDontCare},{1,any,nHf0,sfDontCare},{1,any,nHf1,sfDontCare}},{{0,any,nHf0,sfDontCare},{1,any,nHf0,sfDontCare},{2,any,nHf0,sfDontCare},{3,any,nHf0,sfDontCare}},{{0,any,nHf0,sfDontCare},{1,any,nHf0,sfDontCare},{2,any,nHf0,sfDontCare},{3,any,nHf0,sfDontCare}},{{0,any,nHf0,sfDontCare},{1,any,nHf0,sfDontCare},{2,any,nHf0,sfDontCare},{3,any,nHf0,sfDontCare}},{{0,any,nHf0,sfDontCare},{0,any,nHf1,sfDontCare},{1,any,nHf0,sfDontCare},{1,any,nHf1,sfDontCare}}}}},
+        {56, {{{{0,any,nHf0,sfDontCare},{0,any,nHf1,sfDontCare},{1,any,nHf0,sfDontCare},{1,any,nHf1,sfDontCare},{2,any,nHf0,sfDontCare}},{{0,any,nHf0,sfDontCare},{0,any,nHf1,sfDontCare},{1,any,nHf0,sfDontCare},{1,any,nHf1,sfDontCare},{2,any,nHf0,sfDontCare}},{{0,any,nHf0,sfDontCare},{0,any,nHf1,sfDontCare},{1,any,nHf0,sfDontCare},{1,any,nHf1,sfDontCare},{2,any,nHf0,sfDontCare}},{{0,any,nHf0,sfDontCare},{1,any,nHf0,sfDontCare},{2,any,nHf0,sfDontCare},{3,any,nHf0,sfDontCare},{4,any,nHf0,sfDontCare}},{{0,any,nHf0,sfDontCare},{1,any,nHf0,sfDontCare},{2,any,nHf0,sfDontCare},{3,any,nHf0,sfDontCare},{4,any,nHf0,sfDontCare}},{{0,any,nHf0,sfDontCare},{1,any,nHf0,sfDontCare},{2,any,nHf0,sfDontCare},{3,any,nHf0,sfDontCare},{4,any,nHf0,sfDontCare}},{{0,any,nHf0,sfDontCare},{0,any,nHf1,sfDontCare},{1,any,nHf0,sfDontCare},{1,any,nHf1,sfDontCare},{2,any,nHf0,sfDontCare}}}}},
+        {57, {{{{0,any,nHf0,sfDontCare},{0,any,nHf1,sfDontCare},{1,any,nHf0,sfDontCare},{1,any,nHf1,sfDontCare},{2,any,nHf0,sfDontCare},{2,any,nHf1,sfDontCare}},{{0,any,nHf0,sfDontCare},{0,any,nHf1,sfDontCare},{1,any,nHf0,sfDontCare},{1,any,nHf1,sfDontCare},{2,any,nHf0,sfDontCare},{2,any,nHf1,sfDontCare}},{{0,any,nHf0,sfDontCare},{0,any,nHf1,sfDontCare},{1,any,nHf0,sfDontCare},{1,any,nHf1,sfDontCare},{2,any,nHf0,sfDontCare},{2,any,nHf1,sfDontCare}},{{0,any,nHf0,sfDontCare},{1,any,nHf0,sfDontCare},{2,any,nHf0,sfDontCare},{3,any,nHf0,sfDontCare},{4,any,nHf0,sfDontCare},{5,any,nHf0,sfDontCare}},{{0,any,nHf0,sfDontCare},{1,any,nHf0,sfDontCare},{2,any,nHf0,sfDontCare},{3,any,nHf0,sfDontCare},{4,any,nHf0,sfDontCare},{5,any,nHf0,sfDontCare}},{{0,any,nHf0,sfDontCare},{1,any,nHf0,sfDontCare},{2,any,nHf0,sfDontCare},{3,any,nHf0,sfDontCare},{4,any,nHf0,sfDontCare},{5,any,nHf0,sfDontCare}},{{0,any,nHf0,sfDontCare},{0,any,nHf1,sfDontCare},{1,any,nHf0,sfDontCare},{1,any,nHf1,sfDontCare},{2,any,nHf0,sfDontCare},{2,any,nHf1,sfDontCare}}}}},
+        {58, {{{},{},{},{},{},{},{}}}},
+        {59, {{{},{},{},{},{},{},{}}}},
+        {60, {{{},{},{},{},{},{},{}}}},
+        {61, {{{},{},{},{},{},{},{}}}},
+        {62, {{{},{},{},{},{},{},{}}}},
+        {63, {{{},{},{},{},{},{},{}}}},
+    }};
+
+    return(preambleMappings);
+}
