@@ -64,6 +64,17 @@ typedef struct {
     uint8_t nGap2;  // N_{gap,2} in [1] Table 6.2.3.2-1
 } nGaps_t;
 
+// [1] Table 5.6-1: SC-FDMA parameters
+inline constexpr std::array<uint32_t, lte::consts::nSlotsPerSubframe*lte::consts::nSymbolsPerSlotNormalCp> cpLenNormalCp = {160, 144, 144, 144, 144, 144, 144, 160, 144, 144, 144, 144, 144, 144};
+inline constexpr std::array<uint32_t, lte::consts::nSlotsPerSubframe*lte::consts::nSymbolsPerSlotExtendedCp> cpLenExtendedCp = {512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512};
+
+const specialSubframeBreakdown_t specialSubframeConfiguration_T4P2_1(const uint8_t specialSubframeConfig,
+                                                                     const lte::enums::cpType dlCpType,
+                                                                     const lte::enums::cpType ulCpType,
+                                                                     uint8_t& numDlSymbols,
+                                                                     uint8_t& numUlSymbols,
+                                                                     uint8_t srs_len_upPtsAdd = 0);
+
 typedef struct {
     // element describing the random access configuration in [1] Table 5.7.1-2
     lte::enums::prachPreambleFormat preambleFormat;
@@ -265,6 +276,65 @@ inline const std::vector<std::pair<std::pair<uint16_t, uint16_t>, std::vector<ui
         {{820 , 837 }, {336, 503, 305, 534, 373, 466, 280, 559, 279, 560, 419, 420, 240, 599, 258, 581, 229, 610                                                                                                                                                                                                                                                                        }},
 }};
 
+typedef struct {
+    uint8_t mSrs;
+    uint8_t N;
+} srsBandwidthConfigPerUe;
+
+constexpr uint8_t numSrsBandwidthConfigurations = 8;    // cell specific parameter srs-BandwidthConfig $C_{SRS} \in {0,1,2,3,4,5,6,7}$.
+constexpr uint8_t numSrsBandwidthOptions = 4;           // UE specific parameter srs-Bandwidth $B_{SRS} \in {0,1,2,3}$.
+// [1] Table 5.5.3.2-1: srsBandwidthConfigPerUe values for the uplink bandwidth of 6 <= N UL <= 40
+inline constexpr std::array<std::pair<uint8_t, std::array<srsBandwidthConfigPerUe, numSrsBandwidthOptions>>, numSrsBandwidthConfigurations> srsBandwidthPerUe_T5P5P3P2_1 =
+{{
+        {0,{{{36,1},{12,3},{4,3},{4,1}}}},
+        {1,{{{32,1},{16,2},{8,2},{4,2}}}},
+        {2,{{{24,1},{4,6},{4,1},{4,1}}}},
+        {3,{{{20,1},{4,5},{4,1},{4,1}}}},
+        {4,{{{16,1},{4,4},{4,1},{4,1}}}},
+        {5,{{{12,1},{4,3},{4,1},{4,1}}}},
+        {6,{{{8,1},{4,2},{4,1},{4,1}}}},
+        {7,{{{4,1},{4,1},{4,1},{4,1}}}}
+
+}};
+
+// [1] Table 5.5.3.2-2: srsBandwidthConfigPerUe values for the uplink bandwidth of 40 < N UL <= 60
+inline constexpr std::array<std::pair<uint8_t, std::array<srsBandwidthConfigPerUe, numSrsBandwidthOptions>>, numSrsBandwidthConfigurations> srsBandwidthPerUe_T5P5P3P2_2 =
+{{
+        {0,{{{48,1},{24,2},{12,2},{4,3}}}},
+        {1,{{{48,1},{16,3},{8,2},{4,2}}}},
+        {2,{{{40,1},{20,2},{4,5},{4,1}}}},
+        {3,{{{36,1},{12,3},{4,3},{4,1}}}},
+        {4,{{{32,1},{16,2},{8,2},{4,2}}}},
+        {5,{{{24,1},{4,6},{4,1},{4,1}}}},
+        {6,{{{20,1},{4,5},{4,1},{4,1}}}},
+        {7,{{{16,1},{4,4},{4,1},{4,1}}}}
+}};
+
+// [1] Table 5.5.3.2-3: srsBandwidthConfigPerUe values for the uplink bandwidth of 60 < N UL <= 80
+inline constexpr std::array<std::pair<uint8_t, std::array<srsBandwidthConfigPerUe, numSrsBandwidthOptions>>, numSrsBandwidthConfigurations> srsBandwidthPerUe_T5P5P3P2_3 =
+{{
+        {0,{{{72,1},{24,3},{12,2},{4,3}}}},
+        {1,{{{64,1},{32,2},{16,2},{4,4}}}},
+        {2,{{{60,1},{20,3},{4,5},{4,1}}}},
+        {3,{{{48,1},{24,2},{12,2},{4,3}}}},
+        {4,{{{48,1},{16,3},{8,2},{4,2}}}},
+        {5,{{{40,1},{20,2},{4,5},{4,1}}}},
+        {6,{{{36,1},{12,3},{4,3},{4,1}}}},
+        {7,{{{32,1},{16,2},{8,2},{4,2}}}}
+}};
+
+// [1] Table 5.5.3.2-4: srsBandwidthConfigPerUe values for the uplink bandwidth of 80 < N UL <= 110
+inline constexpr std::array<std::pair<uint8_t, std::array<srsBandwidthConfigPerUe, numSrsBandwidthOptions>>, numSrsBandwidthConfigurations> srsBandwidthPerUe_T5P5P3P2_4 =
+{{
+        {0,{{{96,1},{48,2},{24,2},{4,6}}}},
+        {1,{{{96,1},{32,3},{16,2},{4,4}}}},
+        {2,{{{80,1},{40,2},{20,2},{4,5}}}},
+        {3,{{{72,1},{24,3},{12,2},{4,3}}}},
+        {4,{{{64,1},{32,2},{16,2},{4,4}}}},
+        {5,{{{60,1},{20,3},{4,5},{4,1}}}},
+        {6,{{{48,1},{24,2},{12,2},{4,3}}}},
+        {7,{{{48,1},{16,3},{8,2},{4,2}}}}
+}};
 
 inline constexpr std::array<std::pair<uint16_t, std::pair<int16_t, int16_t>>, 16> modulationMapperBPSK =
 {{

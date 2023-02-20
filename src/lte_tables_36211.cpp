@@ -37,10 +37,12 @@
 #include "debug_utils.h"
 
 
-inline const specialSubframeBreakdown_t specialSubframeConfiguration_T4P2_1(const uint8_t specialSubframeConfig,
-                                                                            const lte::enums::cpType dlCpType,
-                                                                            const lte::enums::cpType ulCpType,
-                                                                            uint8_t srs_len_upPtsAdd = 0)
+const specialSubframeBreakdown_t specialSubframeConfiguration_T4P2_1(const uint8_t specialSubframeConfig,
+                                                                     const lte::enums::cpType dlCpType,
+                                                                     const lte::enums::cpType ulCpType,
+                                                                     uint8_t& numDlSymbols,
+                                                                     uint8_t& numUlSymbols,
+                                                                     uint8_t srs_len_upPtsAdd)
 {
     DBG_ASSERT(specialSubframeConfig < 11);
     if (lte::enums::cpType::EXTENDED == dlCpType) {
@@ -63,9 +65,11 @@ inline const specialSubframeBreakdown_t specialSubframeConfiguration_T4P2_1(cons
         } else if (specialSubframeConfig < 10) {
             // (5 <= specialSubframeConfig < 10)
             len_upPts = (lte::enums::cpType::NORMAL == ulCpType) ? ((2 + srs_len_upPtsAdd)*2192) : ((2 + srs_len_upPtsAdd)*2560);
-        } else {
-            // specialSubframeConfig = 11;
+        } else if (specialSubframeConfig == 10) {
+            // specialSubframeConfig = 10;
             len_upPts = (lte::enums::cpType::NORMAL == ulCpType) ? 13152 : 12800;
+        } else {
+            DBG_ASSERT(specialSubframeConfig < 11);
         }
     } else {
         // (lte::enums::cpType::EXTENDED == dlCpType)
@@ -83,6 +87,29 @@ inline const specialSubframeBreakdown_t specialSubframeConfiguration_T4P2_1(cons
 
     DBG_ASSERT(len_upPts != 0xffffffff);
     DBG_ASSERT(len_dwPts != 0xffffffff);
+
+    {
+        numDlSymbols = 0;
+        uint32_t totalNumDlSamples = 0;
+        while (totalNumDlSamples < len_dwPts) {
+            uint32_t cpLen = (lte::enums::cpType::NORMAL == dlCpType) ? cpLenNormalCp[numDlSymbols] : cpLenExtendedCp[numDlSymbols];
+            totalNumDlSamples += (lte::consts::fftSizeDefault + cpLen);
+            numDlSymbols++;
+        }
+        DBG_ASSERT(totalNumDlSamples == len_dwPts);
+    }
+
+    {
+        numUlSymbols = 0;
+        uint32_t totalNumUlSamples = 0;
+        uint8_t numSymbols = (lte::enums::cpType::NORMAL == ulCpType)? cpLenNormalCp.size() : cpLenExtendedCp.size();
+        while (totalNumUlSamples < len_upPts) {
+            uint32_t cpLen =  (lte::enums::cpType::NORMAL == ulCpType) ? cpLenNormalCp[(numSymbols - 1) - numUlSymbols] : cpLenExtendedCp[(numSymbols - 1) - numUlSymbols];
+            totalNumUlSamples += (lte::consts::fftSizeDefault + cpLen);
+            numUlSymbols++;
+        }
+        DBG_ASSERT(totalNumUlSamples == len_upPts);
+    }
 
     breakdown.len_DwPTS = len_dwPts;
     breakdown.len_UpPTS = len_upPts;

@@ -52,6 +52,9 @@ namespace lte {
         // Number of samples in a milli-second based on standard sampling rate of 30.72e6 samples per second.
         constexpr uint32_t numSamplesInMs_default = 30720;
 
+        // Default FFT size assuming sampling rate of 30.72e6.
+        constexpr uint32_t fftSizeDefault = 2048;
+
         // maximum number of RBs per carrier.
         constexpr uint16_t nRbMin = 6;
 
@@ -73,9 +76,11 @@ namespace lte {
         // Number of OFDM subcarriers per RB.
         constexpr uint8_t nRbSc = 12;
 
-        // Number of OFDM symbols per slot
-        constexpr uint8_t nSymbUlNormalCp = 7;
-        constexpr uint8_t nSymbUlExtendedCp = 6;
+        // Number of OFDM symbols per slot (0.5ms)
+        constexpr uint8_t nSymbolsPerSlotNormalCp = 7;
+        constexpr uint8_t nSymbolsPerSlotExtendedCp = 6;
+
+        constexpr uint8_t nSlotsPerSubframe = 2;
     }
 }
 
